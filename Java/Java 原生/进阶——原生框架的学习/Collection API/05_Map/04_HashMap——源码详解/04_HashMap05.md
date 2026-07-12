@@ -100,7 +100,7 @@ if ((p = tab[i = (n - 1) & hash]) == null)
 
 `tab[i = (n - 1) & hash]` 会计算出元素在 `table` 数组的哪一索引位置下，`if ((p = tab[i = (n - 1) & hash]) == null) ` 该索引下的位置如果为 null（即该位置没有元素）则会将元素放置该位置，如上图所示。
 
-如果该位置下有元素，如果该索引下是链表则会进行尾插，如果是红黑树则会交给红黑树的插入方法进行处理。
+如果该位置下有元素，如果该索引下是链表则会进行尾插，如果是红黑树则会交给红黑树的插入方法处理。
 
 ## 批量添加 Map 集合元素——putMapEntries()
 
@@ -335,57 +335,58 @@ final Node<K,V> getNode(Object key) {
 }
 ```
 
-## 树化方法——treeifyBin()
+## 链表树化前置方法——treeifyBin()
 
 ```java
 /**
-* 把指定索引下的整条链表，从普通 Node 链表转换成 TreeNode 链表，最后再真正树化为红黑树
-* param:
-*		tab: HashMap 的底层数组 table
-*		hash: 目标 key 的哈希值（用于定位数组索引）
-* 逻辑流程：
-* HashMap 底层初始为 Node<K,V>[] table（数组+链表），当局部某条链表长度≥8 且 数组容量≥64（最小树化容量）时，
-* 该索引下的普通 Node 链表会先转换为 TreeNode 双向链表，最后再树化为红黑树（满足红黑树特性）。
-* 若数组容量<64，即使链表长度≥8，也会先扩容而非树化。
-*/
+ * 链表树化预处理：满足容量条件时将数组指定下标下的单向 Node 链表转为 TreeNode 双向链表，再执行红黑树构建；容量不足则扩容
+ * @param tab HashMap 底层哈希数组 table
+ * @param hash 待处理 key 的哈希值，用于计算数组下标
+ *
+ * 前置调用前提（本方法不做判断，由外层 putVal() 控制）：哈希槽链表长度达到树化阈值8，才会调用本方法
+ * 核心分支逻辑：
+ * 1. 若哈希数组未初始化 / 数组容量小于最小树化容量64：执行扩容 resize()，放弃本次树化
+ * 2. 数组已初始化且容量达标：取出当前下标单向 Node 链表，遍历转换为 TreeNode 双向链表，再调用 treeify 构建红黑树
+ * 补充说明：
+ * MIN_TREEIFY_CAPACITY = 64，是开启链表树化的最低数组容量阈值；
+ * 仅链表过长但数组容量不足时，优先扩容而非树化，减少红黑树维护开销；
+ * TreeNode 双向链表仅为中间过渡结构，最终会被转化为符合红黑树约束的树形结构。
+ */
 final void treeifyBin(Node<K,V>[] tab, int hash) {
-    // 临时存储数组长度变量
+    // 哈希数组长度
     int n;
-    // 临时存储目标索引变量
+    // 目标哈希槽下标
     int index;
-    // 临时存储原普通 Node 链表的节点变量
+    // 当前遍历的普通单向链表节点
     Node<K,V> e;
-    // 分支1：判断参数 tab 是否初始化（一般是HashMap底层的 table ）和 tab 的长度是否达到最小树化容量（64）
+    // 分支1：数组未初始化 或 数组容量未达到最小树化阈值 64，执行扩容，不进行树化处理
     if (tab == null || (n = tab.length) < MIN_TREEIFY_CAPACITY)
-        // 没有初始化或数组容量不足，先扩容（不执行树化）
         resize();
-    // 分支2：tab 已经初始化且数组容量满足树化要求，判断目标索引的节点元素是否为空
+    // 分支2：数组初始化完成且容量满足树化要求，取出目标下标链表头节点
     else if ((e = tab[index = (n - 1) & hash]) != null) {
-        // hd: TreeNode 双向链表的头节点
+        // TreeNode 双向链表头节点
         TreeNode<K,V> hd = null;
-        // tl: TreeNode 双向链表的尾节点
+        // TreeNode 双向链表尾节点
         TreeNode<K,V> tl = null;
-        // 遍历原普通 Node 链表，逐个转换为 TreeNode 节点，构建 TreeNode 双向链表（树化前置步骤）
+        // 遍历原单向 Node 链表，逐个转换为 TreeNode，构建双向链表
         do {
-            // 把普通 Node 节点 e 转换成 TreeNode 节点 p（换壳不换芯，复制原节点的hash/key/value）
+            // 将普通 Node 节点转为 TreeNode 节点，复制原有 hash、key、value 属性
             TreeNode<K,V> p = replacementTreeNode(e, null);
-            // 子分支1：尾节点如果为空，说明 TreeNode 链表中无元素，初始化头节点
             if (tl == null)
-                // 第一个 TreeNode 节点作为头节点
+                // 双向链表为空，初始化头节点
                 hd = p;
-            // 子分支2：尾节点不为空，说明 TreeNode 链表中已有元素，采用尾插法构建双向链表
             else {
-                // 构建双向链表：新节点的prev指向原尾节点，原尾节点的next指向新节点
+                // 尾插构建双向关联：新节点前置指向原尾节点，原尾节点后置指向新节点
                 p.prev = tl;
                 tl.next = p;
             }
-            // 更新尾节点为当前 TreeNode 节点（尾插法核心步骤）
+            // 更新尾指针，指向当前新增的 TreeNode
             tl = p;
         } while ((e = e.next) != null);
-        
-        // 把转换后的 TreeNode 双向链表放回原数组的目标索引位置
+
+        // 将转换完成的 TreeNode 双向链表放回哈希数组对应下标
         if ((tab[index] = hd) != null)
-            // 真正的树化操作：将 TreeNode 双向链表转化为红黑树
+            // 基于双向 TreeNode 链表，正式构建红黑树
             hd.treeify(tab);
     }
 }

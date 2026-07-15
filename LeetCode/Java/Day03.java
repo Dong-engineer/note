@@ -8,35 +8,33 @@ public class Day03 {
     /**
      * 无重复字符的最长字符串
      *
-     *
      * @param s 目标字符串
      * @return 最长子串的长度
      */
     public static int lengthOfLongestSubstring(String s) {
-        // 字符数组
-        char[] chars = s.toCharArray();
-
-        // 定点指针
-        int fixedPoint;
-
-        // 滑动指针
-        int slidingPoint = 0;
-
-        // 结果
-        int result = 0;
-
-        for (fixedPoint = 0; fixedPoint < s.length() - 1;) {
-            slidingPoint++;
-            if (chars[fixedPoint] == chars[slidingPoint]) {
-                result = Math.max(slidingPoint - fixedPoint, result);
-                fixedPoint++;
-                slidingPoint = fixedPoint;
-            }
-            if (slidingPoint == s.length() - 1)
-                return slidingPoint - fixedPoint;
-        }
-
-        return result;
+//        // 字符数组
+//        char[] chars = s.toCharArray();
+//
+//        // 结果
+//        int result = 0;
+//
+//        for (int i = 0; i < s.length() - 1; i++) {
+//            int j = i + 1;
+//
+//            while (j < s.length() - 1) {
+//                if (chars[i] == chars[j]) {
+//                    result = Math.max(j - i, result);
+//                    break;
+//                }
+//
+//                j++;
+//
+//                if (j == s.length() - 1)
+//                    return j - i;
+//            }
+//        }
+//
+        return 0;
     }
 
     public static void main(String[] args) {

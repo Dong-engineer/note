@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gaphor xmlns="https://gaphor.org/model" xmlns:Core="https://gaphor.org/modelinglanguage/Core" xmlns:UML="https://gaphor.org/modelinglanguage/UML" version="4" gaphor-version="3.2.0">
+<model>
+<Core:StyleSheet id="58d6989a-66f8-11ec-b4c8-0456e5e540ed">
+<styleSheet>
+<val>diagram {
+ /* line-style: sloppy 0.3; */
+}
+
+lifeline[name="New Lifeline"] {
+  background-color: rgba(119, 118, 123, 1.0);
+}
+
+lifeline[name="未修改文件"] {
+  background-color: rgba(119, 118, 123, 1.0);
+}
+
+lifeline[name="未跟踪文件"] {
+  background-color: rgba(85, 85, 85, 1.0);
+}
+
+lifeline[name="未修改文件"] {
+  background-color: rgba(28, 113, 216, 1.0);
+}
+
+lifeline[name="已修改文件"] {
+  background-color: rgba(229, 165, 10, 1.0);
+}
+
+lifeline[name="New Lifeline"] {
+  background-color: rgba(198, 70, 0, 1.0);
+}
+
+lifeline[name="已暂存文件"] {
+  background-color: rgba(198, 70, 0, 1.0);
+}
+</val>
+</styleSheet>
+</Core:StyleSheet>
+<UML:Package id="58d6c2e8-66f8-11ec-b4c8-0456e5e540ed">
+<name>
+<val>Git Work</val>
+</name>
+<ownedDiagram>
+<reflist>
+<ref refid="58d6c536-66f8-11ec-b4c8-0456e5e540ed"/>
+</reflist>
+</ownedDiagram>
+<ownedType>
+<reflist>
+<ref refid="463adaf4-6be7-11f1-aabc-345a6036a989"/>
+</reflist>
+</ownedType>
+<packagedElement>
+<reflist>
+<ref refid="463adaf4-6be7-11f1-aabc-345a6036a989"/>
+</reflist>
+</packagedElement>
+</UML:Package>
+<UML:Diagram id="58d6c536-66f8-11ec-b4c8-0456e5e540ed">
+<element>
+<ref refid="58d6c2e8-66f8-11ec-b4c8-0456e5e540ed"/>
+</element>
+<name>
+<val>New Diagram</val>
+</name>
+<ownedPresentation>
+<reflist>
+<ref refid="4639c195-6be7-11f1-947c-345a6036a989"/>
+<ref refid="47159f88-6be7-11f1-9a0b-345a6036a989"/>
+<ref refid="4881a1ae-6be7-11f1-a2a1-345a6036a989"/>
+<ref refid="51a2eb05-6be7-11f1-bb56-345a6036a989"/>
+<ref refid="f369cfa1-6be7-11f1-8559-345a6036a989"/>
+<ref refid="860803f6-6be8-11f1-a85a-345a6036a989"/>
+<ref refid="6a3ba6e9-6be9-11f1-b6d7-345a6036a989"/>
+<ref refid="7651831e-6be9-11f1-9747-345a6036a989"/>
+<ref refid="8835898f-6be9-11f1-ad98-345a6036a989"/>
+</reflist>
+</ownedPresentation>
+</UML:Diagram>
+<UML:Lifeline id="46398d71-6be7-11f1-8b23-345a6036a989">
+<coveredBy>
+<reflist>
+<ref refid="f464d3fd-6be7-11f1-a20c-345a6036a989"/>
+<ref refid="8b98d85b-6be9-11f1-b515-345a6036a989"/>
+</reflist>
+</coveredBy>
+<interaction>
+<ref refid="463adaf4-6be7-11f1-aabc-345a6036a989"/>
+</interaction>
+<name>
+<val>未跟踪文件</val>
+</name>
+<note>
+<val>仓库还未初始化，文件此时还未被跟踪</val>
+</note>
+<presentation>
+<reflist>
+<ref refid="4639c195-6be7-11f1-947c-345a6036a989"/>
+</reflist>
+</presentation>
+</UML:Lifeline>
+<UML:LifelineItem id="4639c195-6be7-11f1-947c-345a6036a989">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 101.0, 356.0)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>100.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="58d6c536-66f8-11ec-b4c8-0456e5e540ed"/>
+</diagram>
+<subject>
+<ref refid="46398d71-6be7-11f1-8b23-345a6036a989"/>
+</subject>
+<lifetime-y>
+<val>385.0</val>
+</lifetime-y>
+</UML:LifelineItem>
+<UML:Interaction id="463adaf4-6be7-11f1-aabc-345a6036a989">
+<lifeline>
+<reflist>
+<ref refid="46398d71-6be7-11f1-8b23-345a6036a989"/>
+<ref refid="4715763d-6be7-11f1-8eda-345a6036a989"/>
+<ref refid="48817465-6be7-11f1-ada1-345a6036a989"/>
+<ref refid="51a2bb90-6be7-11f1-ae8f-345a6036a989"/>
+</reflist>
+</lifeline>
+<message>
+<reflist>
+<ref refid="f45d1f1f-6be7-11f1-8228-345a6036a989"/>
+<ref refid="88802179-6be8-11f1-8886-345a6036a989"/>
+<ref refid="6b1f75b3-6be9-11f1-9181-345a6036a989"/>
+<ref refid="7755c2b9-6be9-11f1-b3a7-345a6036a989"/>
+<ref refid="89caf22c-6be9-11f1-86ae-345a6036a989"/>
+</reflist>
+</message>
+<name>
+<val>Interaction</val>
+</name>
+<owningPackage>
+<ref refid="58d6c2e8-66f8-11ec-b4c8-0456e5e540ed"/>
+</owningPackage>
+<package>
+<ref refid="58d6c2e8-66f8-11ec-b4c8-0456e5e540ed"/>
+</package>
+</UML:Interaction>
+<UML:Lifeline id="4715763d-6be7-11f1-8eda-345a6036a989">
+<coveredBy>
+<reflist>
+<ref refid="6b2755f1-6be9-11f1-a112-345a6036a989"/>
+<ref refid="8bf3189b-6be8-11f1-877a-345a6036a989"/>
+<ref refid="89d31c57-6be9-11f1-99a8-345a6036a989"/>
+</reflist>
+</coveredBy>
+<interaction>
+<ref refid="463adaf4-6be7-11f1-aabc-345a6036a989"/>
+</interaction>
+<name>
+<val>未修改文件</val>
+</name>
+<note>
+<val>文件此时已经存在于 Git 文件中</val>
+</note>
+<presentation>
+<reflist>
+<ref refid="47159f88-6be7-11f1-9a0b-345a6036a989"/>
+</reflist>
+</presentation>
+</UML:Lifeline>
+<UML:LifelineItem id="47159f88-6be7-11f1-9a0b-345a6036a989">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 316.0, 356.0)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>100.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="58d6c536-66f8-11ec-b4c8-0456e5e540ed"/>
+</diagram>
+<subject>
+<ref refid="4715763d-6be7-11f1-8eda-345a6036a989"/>
+</subject>
+<lifetime-y>
+<val>381.0</val>
+</lifetime-y>
+</UML:LifelineItem>
+<UML:Lifeline id="48817465-6be7-11f1-ada1-345a6036a989">
+<coveredBy>
+<reflist>
+<ref refid="6c52a341-6be9-11f1-a555-345a6036a989"/>
+<ref refid="775dac33-6be9-11f1-a7b3-345a6036a989"/>
+</reflist>
+</coveredBy>
+<interaction>
+<ref refid="463adaf4-6be7-11f1-aabc-345a6036a989"/>
+</interaction>
+<name>
+<val>已修改文件</val>
+</name>
+<note>
+<val>文件已经存在于 Git 中，且文件有过修改痕迹</val>
+</note>
+<presentation>
+<reflist>
+<ref refid="4881a1ae-6be7-11f1-a2a1-345a6036a989"/>
+</reflist>
+</presentation>
+</UML:Lifeline>
+<UML:LifelineItem id="4881a1ae-6be7-11f1-a2a1-345a6036a989">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 748.0, 356.0)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>100.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="58d6c536-66f8-11ec-b4c8-0456e5e540ed"/>
+</diagram>
+<subject>
+<ref refid="48817465-6be7-11f1-ada1-345a6036a989"/>
+</subject>
+<lifetime-y>
+<val>387.0</val>
+</lifetime-y>
+</UML:LifelineItem>
+<UML:Lifeline id="51a2bb90-6be7-11f1-ae8f-345a6036a989">
+<coveredBy>
+<reflist>
+<ref refid="fad5bb90-6be7-11f1-90d7-345a6036a989"/>
+<ref refid="788d8636-6be9-11f1-8094-345a6036a989"/>
+<ref refid="8887b397-6be8-11f1-b232-345a6036a989"/>
+</reflist>
+</coveredBy>
+<interaction>
+<ref refid="463adaf4-6be7-11f1-aabc-345a6036a989"/>
+</interaction>
+<name>
+<val>已暂存文件</val>
+</name>
+<note>
+<val>已暂存文件并不代表文件此时已被收入 Git 仓库中</val>
+</note>
+<presentation>
+<reflist>
+<ref refid="51a2eb05-6be7-11f1-bb56-345a6036a989"/>
+</reflist>
+</presentation>
+</UML:Lifeline>
+<UML:LifelineItem id="51a2eb05-6be7-11f1-bb56-345a6036a989">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 975.0, 356.0)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>100.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="58d6c536-66f8-11ec-b4c8-0456e5e540ed"/>
+</diagram>
+<subject>
+<ref refid="51a2bb90-6be7-11f1-ae8f-345a6036a989"/>
+</subject>
+<lifetime-y>
+<val>382.0</val>
+</lifetime-y>
+</UML:LifelineItem>
+<UML:MessageItem id="f369cfa1-6be7-11f1-8559-345a6036a989">
+<diagram>
+<ref refid="58d6c536-66f8-11ec-b4c8-0456e5e540ed"/>
+</diagram>
+<horizontal>
+<val>False</val>
+</horizontal>
+<orthogonal>
+<val>False</val>
+</orthogonal>
+<subject>
+<ref refid="f45d1f1f-6be7-11f1-8228-345a6036a989"/>
+</subject>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 175.0, 515.0)</val>
+</matrix>
+<points>
+<val>[(-24.0, -38.0), (850.0, -38.0)]</val>
+</points>
+<head-connection>
+<ref refid="4639c195-6be7-11f1-947c-345a6036a989"/>
+</head-connection>
+<tail-connection>
+<ref refid="51a2eb05-6be7-11f1-bb56-345a6036a989"/>
+</tail-connection>
+</UML:MessageItem>
+<UML:Message id="f45d1f1f-6be7-11f1-8228-345a6036a989">
+<interaction>
+<ref refid="463adaf4-6be7-11f1-aabc-345a6036a989"/>
+</interaction>
+<name>
+<val>git add 跟踪文件</val>
+</name>
+<note>
+<val></val>
+</note>
+<presentation>
+<reflist>
+<ref refid="f369cfa1-6be7-11f1-8559-345a6036a989"/>
+</reflist>
+</presentation>
+<receiveEvent>
+<ref refid="fad5bb90-6be7-11f1-90d7-345a6036a989"/>
+</receiveEvent>
+<sendEvent>
+<ref refid="f464d3fd-6be7-11f1-a20c-345a6036a989"/>
+</sendEvent>
+</UML:Message>
+<UML:MessageOccurrenceSpecification id="f464d3fd-6be7-11f1-a20c-345a6036a989">
+<covered>
+<ref refid="46398d71-6be7-11f1-8b23-345a6036a989"/>
+</covered>
+<sendMessage>
+<ref refid="f45d1f1f-6be7-11f1-8228-345a6036a989"/>
+</sendMessage>
+</UML:MessageOccurrenceSpecification>
+<UML:MessageOccurrenceSpecification id="fad5bb90-6be7-11f1-90d7-345a6036a989">
+<covered>
+<ref refid="51a2bb90-6be7-11f1-ae8f-345a6036a989"/>
+</covered>
+<receiveMessage>
+<ref refid="f45d1f1f-6be7-11f1-8228-345a6036a989"/>
+</receiveMessage>
+</UML:MessageOccurrenceSpecification>
+<UML:MessageItem id="860803f6-6be8-11f1-a85a-345a6036a989">
+<diagram>
+<ref refid="58d6c536-66f8-11ec-b4c8-0456e5e540ed"/>
+</diagram>
+<horizontal>
+<val>False</val>
+</horizontal>
+<orthogonal>
+<val>False</val>
+</orthogonal>
+<subject>
+<ref refid="88802179-6be8-11f1-8886-345a6036a989"/>
+</subject>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 105.0, 558.0)</val>
+</matrix>
+<points>
+<val>[(920.0, 63.0), (261.0, 63.0)]</val>
+</points>
+<head-connection>
+<ref refid="51a2eb05-6be7-11f1-bb56-345a6036a989"/>
+</head-connection>
+<tail-connection>
+<ref refid="47159f88-6be7-11f1-9a0b-345a6036a989"/>
+</tail-connection>
+</UML:MessageItem>
+<UML:Message id="88802179-6be8-11f1-8886-345a6036a989">
+<interaction>
+<ref refid="463adaf4-6be7-11f1-aabc-345a6036a989"/>
+</interaction>
+<name>
+<val>git commit 向仓库提交文件</val>
+</name>
+<presentation>
+<reflist>
+<ref refid="860803f6-6be8-11f1-a85a-345a6036a989"/>
+</reflist>
+</presentation>
+<receiveEvent>
+<ref refid="8bf3189b-6be8-11f1-877a-345a6036a989"/>
+</receiveEvent>
+<sendEvent>
+<ref refid="8887b397-6be8-11f1-b232-345a6036a989"/>
+</sendEvent>
+</UML:Message>
+<UML:MessageOccurrenceSpecification id="8887b397-6be8-11f1-b232-345a6036a989">
+<covered>
+<ref refid="51a2bb90-6be7-11f1-ae8f-345a6036a989"/>
+</covered>
+<sendMessage>
+<ref refid="88802179-6be8-11f1-8886-345a6036a989"/>
+</sendMessage>
+</UML:MessageOccurrenceSpecification>
+<UML:MessageOccurrenceSpecification id="8bf3189b-6be8-11f1-877a-345a6036a989">
+<covered>
+<ref refid="4715763d-6be7-11f1-8eda-345a6036a989"/>
+</covered>
+<receiveMessage>
+<ref refid="88802179-6be8-11f1-8886-345a6036a989"/>
+</receiveMessage>
+</UML:MessageOccurrenceSpecification>
+<UML:MessageItem id="6a3ba6e9-6be9-11f1-b6d7-345a6036a989">
+<diagram>
+<ref refid="58d6c536-66f8-11ec-b4c8-0456e5e540ed"/>
+</diagram>
+<horizontal>
+<val>False</val>
+</horizontal>
+<orthogonal>
+<val>False</val>
+</orthogonal>
+<subject>
+<ref refid="6b1f75b3-6be9-11f1-9181-345a6036a989"/>
+</subject>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 450.0, 547.0)</val>
+</matrix>
+<points>
+<val>[(-84.0, -5.0), (348.0, -5.0)]</val>
+</points>
+<head-connection>
+<ref refid="47159f88-6be7-11f1-9a0b-345a6036a989"/>
+</head-connection>
+<tail-connection>
+<ref refid="4881a1ae-6be7-11f1-a2a1-345a6036a989"/>
+</tail-connection>
+</UML:MessageItem>
+<UML:Message id="6b1f75b3-6be9-11f1-9181-345a6036a989">
+<interaction>
+<ref refid="463adaf4-6be7-11f1-aabc-345a6036a989"/>
+</interaction>
+<name>
+<val>编辑文件</val>
+</name>
+<presentation>
+<reflist>
+<ref refid="6a3ba6e9-6be9-11f1-b6d7-345a6036a989"/>
+</reflist>
+</presentation>
+<receiveEvent>
+<ref refid="6c52a341-6be9-11f1-a555-345a6036a989"/>
+</receiveEvent>
+<sendEvent>
+<ref refid="6b2755f1-6be9-11f1-a112-345a6036a989"/>
+</sendEvent>
+</UML:Message>
+<UML:MessageOccurrenceSpecification id="6b2755f1-6be9-11f1-a112-345a6036a989">
+<covered>
+<ref refid="4715763d-6be7-11f1-8eda-345a6036a989"/>
+</covered>
+<sendMessage>
+<ref refid="6b1f75b3-6be9-11f1-9181-345a6036a989"/>
+</sendMessage>
+</UML:MessageOccurrenceSpecification>
+<UML:MessageOccurrenceSpecification id="6c52a341-6be9-11f1-a555-345a6036a989">
+<covered>
+<ref refid="48817465-6be7-11f1-ada1-345a6036a989"/>
+</covered>
+<receiveMessage>
+<ref refid="6b1f75b3-6be9-11f1-9181-345a6036a989"/>
+</receiveMessage>
+</UML:MessageOccurrenceSpecification>
+<UML:MessageItem id="7651831e-6be9-11f1-9747-345a6036a989">
+<diagram>
+<ref refid="58d6c536-66f8-11ec-b4c8-0456e5e540ed"/>
+</diagram>
+<horizontal>
+<val>False</val>
+</horizontal>
+<orthogonal>
+<val>False</val>
+</orthogonal>
+<subject>
+<ref refid="7755c2b9-6be9-11f1-b3a7-345a6036a989"/>
+</subject>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 897.0, 577.0)</val>
+</matrix>
+<points>
+<val>[(-99.0, 0.0), (128.0, 0.0)]</val>
+</points>
+<head-connection>
+<ref refid="4881a1ae-6be7-11f1-a2a1-345a6036a989"/>
+</head-connection>
+<tail-connection>
+<ref refid="51a2eb05-6be7-11f1-bb56-345a6036a989"/>
+</tail-connection>
+</UML:MessageItem>
+<UML:Message id="7755c2b9-6be9-11f1-b3a7-345a6036a989">
+<interaction>
+<ref refid="463adaf4-6be7-11f1-aabc-345a6036a989"/>
+</interaction>
+<name>
+<val>git add 将文件加入缓存区域</val>
+</name>
+<presentation>
+<reflist>
+<ref refid="7651831e-6be9-11f1-9747-345a6036a989"/>
+</reflist>
+</presentation>
+<receiveEvent>
+<ref refid="788d8636-6be9-11f1-8094-345a6036a989"/>
+</receiveEvent>
+<sendEvent>
+<ref refid="775dac33-6be9-11f1-a7b3-345a6036a989"/>
+</sendEvent>
+</UML:Message>
+<UML:MessageOccurrenceSpecification id="775dac33-6be9-11f1-a7b3-345a6036a989">
+<covered>
+<ref refid="48817465-6be7-11f1-ada1-345a6036a989"/>
+</covered>
+<sendMessage>
+<ref refid="7755c2b9-6be9-11f1-b3a7-345a6036a989"/>
+</sendMessage>
+</UML:MessageOccurrenceSpecification>
+<UML:MessageOccurrenceSpecification id="788d8636-6be9-11f1-8094-345a6036a989">
+<covered>
+<ref refid="51a2bb90-6be7-11f1-ae8f-345a6036a989"/>
+</covered>
+<receiveMessage>
+<ref refid="7755c2b9-6be9-11f1-b3a7-345a6036a989"/>
+</receiveMessage>
+</UML:MessageOccurrenceSpecification>
+<UML:MessageItem id="8835898f-6be9-11f1-ad98-345a6036a989">
+<diagram>
+<ref refid="58d6c536-66f8-11ec-b4c8-0456e5e540ed"/>
+</diagram>
+<horizontal>
+<val>False</val>
+</horizontal>
+<orthogonal>
+<val>False</val>
+</orthogonal>
+<subject>
+<ref refid="89caf22c-6be9-11f1-86ae-345a6036a989"/>
+</subject>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 315.0, 617.0)</val>
+</matrix>
+<points>
+<val>[(51.0, 50.0), (-164.0, 50.0)]</val>
+</points>
+<head-connection>
+<ref refid="47159f88-6be7-11f1-9a0b-345a6036a989"/>
+</head-connection>
+<tail-connection>
+<ref refid="4639c195-6be7-11f1-947c-345a6036a989"/>
+</tail-connection>
+</UML:MessageItem>
+<UML:Message id="89caf22c-6be9-11f1-86ae-345a6036a989">
+<interaction>
+<ref refid="463adaf4-6be7-11f1-aabc-345a6036a989"/>
+</interaction>
+<name>
+<val>删除文件</val>
+</name>
+<presentation>
+<reflist>
+<ref refid="8835898f-6be9-11f1-ad98-345a6036a989"/>
+</reflist>
+</presentation>
+<receiveEvent>
+<ref refid="8b98d85b-6be9-11f1-b515-345a6036a989"/>
+</receiveEvent>
+<sendEvent>
+<ref refid="89d31c57-6be9-11f1-99a8-345a6036a989"/>
+</sendEvent>
+</UML:Message>
+<UML:MessageOccurrenceSpecification id="89d31c57-6be9-11f1-99a8-345a6036a989">
+<covered>
+<ref refid="4715763d-6be7-11f1-8eda-345a6036a989"/>
+</covered>
+<sendMessage>
+<ref refid="89caf22c-6be9-11f1-86ae-345a6036a989"/>
+</sendMessage>
+</UML:MessageOccurrenceSpecification>
+<UML:MessageOccurrenceSpecification id="8b98d85b-6be9-11f1-b515-345a6036a989">
+<covered>
+<ref refid="46398d71-6be7-11f1-8b23-345a6036a989"/>
+</covered>
+<receiveMessage>
+<ref refid="89caf22c-6be9-11f1-86ae-345a6036a989"/>
+</receiveMessage>
+</UML:MessageOccurrenceSpecification>
+</model>
+</gaphor>

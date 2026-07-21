@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--  默认执行无参构造方法  -->
+    <bean id="user" class="org.dong.Beans.User"/>
+    <bean id="user-1" class="org.dong.Beans.User">
+        <!-- 这里会条用 setter 方法 -->
+        <property name="name" value="Dong"/>
+        <property name="age" value="18"/>
+        <property name="address" value="China"/>
+    </bean>
+
+    <!-- 开发者如果需要指定使用有参构造则需要使用 constructor-arg -->
+    <bean id="user-2" class="org.dong.Beans.User">
+        <constructor-arg name="name" value="JQK"/>
+        <constructor-arg name="age" value="19"/>
+        <constructor-arg name="address" value="BeiJing"/>
+    </bean>
+</beans>

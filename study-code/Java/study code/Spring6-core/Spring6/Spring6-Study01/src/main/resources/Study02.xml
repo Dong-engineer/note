@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+     id 是 bean 的唯一标识，在整个 Spring 容器中是唯一的存在，
+     name 是 bean 的别名，但并不是 bean 的唯一标识，开发者也可以通过 name 获取 bean
+     name 可以使用,或;分割开来
+     -->
+    <bean id="user-1" name="JQK,Dong;JQD" class="org.dong.Beans.User"/>
+
+    <!-- 这里也可以使用 <alias/> 来命名别名 -->
+    <alias name="Dong" alias="JQDong"/>
+</beans>

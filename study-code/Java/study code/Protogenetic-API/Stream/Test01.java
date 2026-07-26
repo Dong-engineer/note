@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 /**
- * @Description Collection 获取集合对象
+ * @Description 获取 Collection 集合的 Stream 流对象
  * @Author Dong
  */
 public class Test01 {
@@ -29,6 +29,5 @@ public class Test01 {
 
         Stream<String> setStream = set.stream();
         setStream.forEach(System.out::println);
-
     }
 }

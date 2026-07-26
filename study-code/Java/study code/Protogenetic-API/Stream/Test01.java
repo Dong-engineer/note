@@ -25,13 +25,10 @@ public class Test01 {
         Stream<Integer> reverse = list
                 .stream()
                 .sorted(Comparator.reverseOrder());
-
         reverse.forEach(System.out::println);
 
         Stream<String> setStream = set.stream();
-
         setStream.forEach(System.out::println);
 
-        Arrays.stream()
     }
 }
